@@ -29,7 +29,7 @@ pipeline {
 
         stage('Stage Branch Build Code') {
             when {
-                branch 'stage'
+                branch 'developer'
             }
             steps {
                 sh '''
@@ -43,7 +43,7 @@ pipeline {
 
         stage('Stage Branch Deploy Code') {
             when {
-                branch 'stage'
+                branch 'developer'
             }
             steps {
                 sh '''
