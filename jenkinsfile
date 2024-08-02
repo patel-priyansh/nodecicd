@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -zvhr -e ssh . ubuntu@35.154.248.39:/home/ubuntu/node-app-prod-server/
+                    rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-prod-server/
                     echo "prod Sucessfully Deployed App"
                 '''
             }
