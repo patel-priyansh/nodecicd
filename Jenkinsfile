@@ -35,7 +35,7 @@ pipeline {
                 sh '''
                     echo "Build App"
                     npm i
-                    echo "Stage Successfully Builded app"
+                    echo "developer Successfully Builded app"
                 '''
             }
         }
@@ -48,7 +48,7 @@ pipeline {
             steps {
                 sh '''
                     rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-developer-server/
-                    echo "Stage Sucessfully Deployed App"
+                    echo "developer Sucessfully Deployed App"
                 '''
             }
         }
