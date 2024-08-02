@@ -26,29 +26,54 @@ pipeline {
                 '''
             }
         }
-
-        stage('Stage Branch Build Code') {
+        stage('QA Branch Build Code') {
             when {
-                branch 'stage'
+                branch 'qa'
             }
             steps {
                 sh '''
                     echo "Build App"
                     npm i
-                    echo "Stage Successfully Builded app"
+                    echo "QA Successfully Builded app"
                 '''
             }
         }
 
 
-        stage('Stage Branch Deploy Code') {
+        stage('QA Branch Deploy Code') {
             when {
-                branch 'stage'
+                branch 'qa'
             }
             steps {
                 sh '''
-                    rsync -zvhr -e ssh . ubuntu@35.154.248.39:/home/ubuntu/node-app-stage-server/
-                    echo "Stage Sucessfully Deployed App"
+                    rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-QA-server/
+                    echo "QA Sucessfully Deployed App"
+                '''
+            }
+        }
+
+        stage('developer Branch Build Code') {
+            when {
+                branch 'developer'
+            }
+            steps {
+                sh '''
+                    echo "Build App"
+                    npm i
+                    echo "developer Successfully Builded app"
+                '''
+            }
+        }
+
+
+        stage('developer Branch Deploy Code') {
+            when {
+                branch 'developer'
+            }
+            steps {
+                sh '''
+                    rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-developer-server/
+                    echo "developer Sucessfully Deployed App"
                 '''
             }
         }
