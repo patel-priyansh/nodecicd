@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-prod-server/
+                    rsync -zvhr -e ssh . ubuntu@52.204.46.77:/home/ubuntu/node-app-prod-server/
                     echo "prod Sucessfully Deployed App"
                     ssh ubuntu@54.167.33.111 'pm2 start prod'
                 '''
@@ -47,7 +47,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-QA-server/
+                    rsync -zvhr -e ssh . ubuntu@52.204.46.77:/home/ubuntu/node-app-QA-server/
                     echo "QA Sucessfully Deployed App"
                     ssh ubuntu@54.167.33.111 'pm2 start QA'
                 '''
@@ -74,7 +74,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    rsync -zvhr -e ssh . ubuntu@54.167.33.111:/home/ubuntu/node-app-developer-server/
+                    rsync -zvhr -e ssh . ubuntu@52.204.46.77:/home/ubuntu/node-app-developer-server/
                     echo "developer Sucessfully Deployed App"
                     ssh ubuntu@54.167.33.111 'pm2 start dev'
                 '''
